@@ -12,7 +12,7 @@ source:
       - 3713c26ca11e60b1d429a624df26e8277be6f634.patch
 
 build:
-  number: 2
+  number: 3
   skip: true  # [py<35]
 
 requirements:
