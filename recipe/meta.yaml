@@ -1,5 +1,5 @@
 {% set name = "ecell4_base" %}
-{% set version = "2.0.4" %}
+{% set version = "2.0.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   - url: https://github.com/ecell/{{ name }}/releases/download/v{{ version }}/ecell4_base.tar.gz
-    sha256: b287267c657b424a6d6b39409c5011635746fc057e9104f8252e351dccb5ec84
+    sha256: e86029d807f6b2f79070ee7d4f3659e9daaeef6558212e78dbf01459a0330905
     patches:
       - 3713c26ca11e60b1d429a624df26e8277be6f634.patch
 
 build:
-  number: 3
+  number: 0
   skip: true  # [py<35]
 
 requirements:
