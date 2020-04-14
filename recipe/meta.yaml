@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://github.com/ecell/{{ name }}/archive/v{{ version }}.tar.gz
-    sha256: 26420284999b045acd155d197f0b4c529c2e76628da4146c731e461402bb814f
+  - url: https://github.com/ecell/{{ name }}/releases/download/v{{ version }}/ecell4_base.tar.gz
+    sha256: e86029d807f6b2f79070ee7d4f3659e9daaeef6558212e78dbf01459a0330905
     patches:
       - 3713c26ca11e60b1d429a624df26e8277be6f634.patch
 
