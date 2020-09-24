@@ -20,6 +20,7 @@ requirements:
     - {{ compiler('cxx') }}  # [not win]
     - vs2017_{{ target_platform }}  # [win]
     - cmake
+    - glib
   host:
     - python
     - setuptools
