@@ -10,6 +10,7 @@ source:
     sha256: e86029d807f6b2f79070ee7d4f3659e9daaeef6558212e78dbf01459a0330905
     patches:
       - 3713c26ca11e60b1d429a624df26e8277be6f634.patch
+      - link_librt.patch
 
 build:
   number: 1
