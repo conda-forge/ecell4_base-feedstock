@@ -17,8 +17,6 @@ build:
   skip: true  # [py<35]
 
 requirements:
-  run_constrained:
-    - __glibc >=2.17
   build:
     - {{ compiler('cxx') }}  # [not win]
     - vs2017_{{ target_platform }}  # [win]
