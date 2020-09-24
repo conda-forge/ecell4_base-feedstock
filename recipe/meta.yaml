@@ -13,8 +13,8 @@ source:
       - link_librt.patch
 
 build:
-  number: 1
-  skip: true  # [py<35]
+  number: 2
+  skip: true  # [py<35 or python_impl == 'pypy']
 
 requirements:
   build:
