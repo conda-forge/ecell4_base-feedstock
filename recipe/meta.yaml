@@ -18,22 +18,21 @@ build:
 
 requirements:
   build:
-    - {{ compiler('cxx') }}  # [not win]
-    - vs2017_{{ target_platform }}  # [win]
+    - {{ compiler('cxx') }}
     - cmake
-    - make
+    - make  # [unix]
+    - ninja  # [win]
   host:
     - python
     - setuptools
     - pip
     - pybind11
-    - hdf5 =1.10.5
+    - hdf5
     - gsl
     - boost
+    - zlib
   run:
     - gsl
-    - hdf5 =1.10.5
-    - zlib
     - python
 
 test:
