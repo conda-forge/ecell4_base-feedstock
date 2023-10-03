@@ -28,7 +28,7 @@ requirements:
     - pybind11
     - hdf5
     - gsl
-    - libboost-python-devel
+    - libboost-headers
     - zlib
   run:
     - gsl
