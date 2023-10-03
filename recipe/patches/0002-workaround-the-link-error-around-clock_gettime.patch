@@ -1,0 +1,106 @@
+From 9b2b9d2136c67c6389cf836300cb613bf44ab459 Mon Sep 17 00:00:00 2001
+From: ToruNiina <niina.toru.68u@gmail.com>
+Date: Thu, 24 Sep 2020 17:00:36 +0900
+Subject: [PATCH 2/2] workaround the link error around clock_gettime
+
+glibc older than 2.17 (released in 2012) seems to require librt to call
+clock_* functions.
+---
+ ecell4/bd/tests/CMakeLists.txt         | 4 ++++
+ ecell4/core/tests/CMakeLists.txt       | 4 ++++
+ ecell4/gillespie/tests/CMakeLists.txt  | 4 ++++
+ ecell4/meso/tests/CMakeLists.txt       | 4 ++++
+ ecell4/ode/tests/CMakeLists.txt        | 4 ++++
+ ecell4/spatiocyte/tests/CMakeLists.txt | 4 ++++
+ 6 files changed, 24 insertions(+)
+
+diff --git a/ecell4/bd/tests/CMakeLists.txt b/ecell4/bd/tests/CMakeLists.txt
+index 2d2c81c7..ada18f90 100644
+--- a/ecell4/bd/tests/CMakeLists.txt
++++ b/ecell4/bd/tests/CMakeLists.txt
+@@ -6,6 +6,10 @@ if (Boost_UNIT_TEST_FRAMEWORK_FOUND)
+     add_definitions(-DBOOST_TEST_DYN_LINK)
+     add_definitions(-DUNITTEST_FRAMEWORK_LIBRARY_EXIST)
+     set(test_library_dependencies ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
++else()
++    if(UNIX AND NOT APPLE)
++        set(test_library_dependencies rt)
++    endif()
+ endif()
+ 
+ foreach(TEST_NAME ${TEST_NAMES})
+diff --git a/ecell4/core/tests/CMakeLists.txt b/ecell4/core/tests/CMakeLists.txt
+index 30d0de8b..fee35cb6 100644
+--- a/ecell4/core/tests/CMakeLists.txt
++++ b/ecell4/core/tests/CMakeLists.txt
+@@ -13,6 +13,10 @@ if (Boost_UNIT_TEST_FRAMEWORK_FOUND)
+     add_definitions(-DBOOST_TEST_DYN_LINK)
+     add_definitions(-DUNITTEST_FRAMEWORK_LIBRARY_EXIST)
+     set(test_library_dependencies ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
++else()
++    if(UNIX AND NOT APPLE)
++        set(test_library_dependencies rt)
++    endif()
+ endif()
+ 
+ foreach(TEST_NAME ${TEST_NAMES})
+diff --git a/ecell4/gillespie/tests/CMakeLists.txt b/ecell4/gillespie/tests/CMakeLists.txt
+index f6f0fc4f..a5bcbe93 100644
+--- a/ecell4/gillespie/tests/CMakeLists.txt
++++ b/ecell4/gillespie/tests/CMakeLists.txt
+@@ -6,6 +6,10 @@ if (Boost_UNIT_TEST_FRAMEWORK_FOUND)
+     add_definitions(-DBOOST_TEST_DYN_LINK)
+     add_definitions(-DUNITTEST_FRAMEWORK_LIBRARY_EXIST)
+     set(test_library_dependencies ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
++else()
++    if(UNIX AND NOT APPLE)
++        set(test_library_dependencies rt)
++    endif()
+ endif()
+ 
+ foreach(TEST_NAME ${TEST_NAMES})
+diff --git a/ecell4/meso/tests/CMakeLists.txt b/ecell4/meso/tests/CMakeLists.txt
+index 596293b2..132cc189 100644
+--- a/ecell4/meso/tests/CMakeLists.txt
++++ b/ecell4/meso/tests/CMakeLists.txt
+@@ -6,6 +6,10 @@ if (Boost_UNIT_TEST_FRAMEWORK_FOUND)
+     add_definitions(-DBOOST_TEST_DYN_LINK)
+     add_definitions(-DUNITTEST_FRAMEWORK_LIBRARY_EXIST)
+     set(test_library_dependencies ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
++else()
++    if(UNIX AND NOT APPLE)
++        set(test_library_dependencies rt)
++    endif()
+ endif()
+ 
+ foreach(TEST_NAME ${TEST_NAMES})
+diff --git a/ecell4/ode/tests/CMakeLists.txt b/ecell4/ode/tests/CMakeLists.txt
+index f9cd2c21..c8c13c40 100644
+--- a/ecell4/ode/tests/CMakeLists.txt
++++ b/ecell4/ode/tests/CMakeLists.txt
+@@ -6,6 +6,10 @@ if (Boost_UNIT_TEST_FRAMEWORK_FOUND)
+     add_definitions(-DBOOST_TEST_DYN_LINK)
+     add_definitions(-DUNITTEST_FRAMEWORK_LIBRARY_EXIST)
+     set(test_library_dependencies ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
++else()
++    if(UNIX AND NOT APPLE)
++        set(test_library_dependencies rt)
++    endif()
+ endif()
+ 
+ foreach(TEST_NAME ${TEST_NAMES})
+diff --git a/ecell4/spatiocyte/tests/CMakeLists.txt b/ecell4/spatiocyte/tests/CMakeLists.txt
+index 0d717470..4cf80a3a 100644
+--- a/ecell4/spatiocyte/tests/CMakeLists.txt
++++ b/ecell4/spatiocyte/tests/CMakeLists.txt
+@@ -8,6 +8,10 @@ if (Boost_UNIT_TEST_FRAMEWORK_FOUND)
+     add_definitions(-DBOOST_TEST_DYN_LINK)
+     add_definitions(-DUNITTEST_FRAMEWORK_LIBRARY_EXIST)
+     set(test_library_dependencies ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
++else()
++    if(UNIX AND NOT APPLE)
++        set(test_library_dependencies rt)
++    endif()
+ endif()
+ 
+ foreach(TEST_NAME ${TEST_NAMES})

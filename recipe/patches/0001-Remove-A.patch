@@ -1,0 +1,25 @@
+From 9fc61588c1acaadc92c1b53095a0cb193bfa3413 Mon Sep 17 00:00:00 2001
+From: Isuru Fernando <isuruf@gmail.com>
+Date: Mon, 16 Dec 2019 19:09:46 -0600
+Subject: [PATCH 1/2] Remove -A
+
+---
+ setup.py | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index bfce24dd..1da4f103 100644
+--- a/setup.py
++++ b/setup.py
+@@ -58,11 +58,6 @@ class CMakeBuild(build_ext):
+         if self.jobs:
+             build_args += ['-j', self.jobs]
+ 
+-        if platform.system() == "Windows":
+-            cmake_args += ['-DCMAKE_LIBRARY_OUTPUT_DIRECTORY_{}={}'.format(cfg.upper(), extdir)]
+-            if sys.maxsize > 2**32:
+-                cmake_args += ['-A', 'x64']
+-            build_args += ['--', '/m']
+         cmake_args += ['-DCMAKE_BUILD_TYPE=' + cfg]
+ 
+         if platform.system() == "Windows":
