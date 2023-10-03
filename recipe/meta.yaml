@@ -1,20 +1,19 @@
-{% set name = "ecell4_base" %}
 {% set version = "2.1.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: ecell4_base
   version: {{ version }}
 
 source:
-  - url: https://github.com/ecell/{{ name }}/releases/download/v{{ version }}/ecell4_base.tar.gz
+  - url: https://github.com/ecell/ecell4_base/releases/download/v{{ version }}/ecell4_base.tar.gz
     sha256: 98ed3baa1558c41d836541830ab662fe176e7be7a7dd9962ef8591f0b56e5a4b
     patches:
-      - 3713c26ca11e60b1d429a624df26e8277be6f634.patch
-      - link_librt.patch
+      - patches/3713c26ca11e60b1d429a624df26e8277be6f634.patch
+      - patches/link_librt.patch
 
 build:
   number: 6
-  skip: true  # [py<35 or python_impl == 'pypy']
+  skip: true  # [python_impl == 'pypy']
 
 requirements:
   build:
