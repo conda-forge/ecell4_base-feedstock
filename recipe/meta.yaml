@@ -8,8 +8,8 @@ source:
   - url: https://github.com/ecell/ecell4_base/releases/download/v{{ version }}/ecell4_base.tar.gz
     sha256: 98ed3baa1558c41d836541830ab662fe176e7be7a7dd9962ef8591f0b56e5a4b
     patches:
-      - patches/3713c26ca11e60b1d429a624df26e8277be6f634.patch
-      - patches/link_librt.patch
+      - patches/0001-Remove-A.patch
+      - patches/0002-workaround-the-link-error-around-clock_gettime.patch
 
 build:
   number: 6
