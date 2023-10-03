@@ -1,5 +1,3 @@
-boost:
-- 1.78.0
 cdt_name:
 - cos6
 channel_sources:
@@ -17,8 +15,6 @@ gsl:
 hdf5:
 - 1.14.2
 pin_run_as_build:
-  boost:
-    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
