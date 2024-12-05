@@ -1,3 +1,5 @@
+c_stdlib:
+- vs
 channel_sources:
 - conda-forge
 channel_targets:
@@ -7,13 +9,15 @@ cxx_compiler:
 gsl:
 - '2.7'
 hdf5:
-- 1.14.2
+- 1.14.4
+libboost_headers:
+- '1.84'
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.10.* *_cpython
+- 3.9.* *_cpython
 python_impl:
 - cpython
 target_platform:
@@ -21,6 +25,5 @@ target_platform:
 zip_keys:
 - - python
   - python_impl
-  - channel_sources
 zlib:
-- '1.2'
+- '1'
