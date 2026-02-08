@@ -17,7 +17,7 @@ cxx_compiler_version:
 gsl:
 - '2.7'
 hdf5:
-- 1.14.3
+- 1.14.6
 libboost_headers:
 - '1.88'
 macos_machine:
