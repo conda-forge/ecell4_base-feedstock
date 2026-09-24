@@ -12,12 +12,13 @@ source:
       - patches/0002-workaround-the-link-error-around-clock_gettime.patch
 
 build:
-  number: 7
+  number: 8
   skip: true  # [python_impl == 'pypy']
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - cmake
     - make  # [unix]
     - ninja  # [win]
